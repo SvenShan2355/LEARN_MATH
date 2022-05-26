@@ -4,11 +4,13 @@
 
 ### 方向导数
 
-如果函数的增量与方向向量首末两点的距离比例存在，则称此为方向向量起点沿着向量方向的**方向导数**，记为：$$\frac{\partial f}{\partial l}=\lim_{\rho \to 0} \frac{f(x+\Delta x,y+\Delta y)-f(x,y)}{\rho}$$
+如果函数的增量与方向向量首末两点的距离比例存在，则称此为方向向量起点沿着向量方向的**方向导数**，记为：
+$$\frac{\partial f}{\partial l}=\lim_{\rho \to 0} \frac{f(x+\Delta x,y+\Delta y)-f(x,y)}{\rho}$$
 
 ### 梯度
 
-如果函数$z=f(x,y)$在平面域内具有连续的一阶偏导数，对于其中任意一点$P(x,y)$的梯度定义为：$$grad f(x,y)=\frac{\partial f}{\partial x} \hat{i}+\frac{\partial f}{\partial y} \hat{j}$$
+如果函数$z=f(x,y)$在平面域内具有连续的一阶偏导数，对于其中任意一点$P(x,y)$的梯度定义为：
+$$grad f(x,y)=\frac{\partial f}{\partial x} \hat{i}+\frac{\partial f}{\partial y} \hat{j}$$
 
 ### 积分中值定理
 
@@ -35,9 +37,9 @@ $$\begin{cases}
 g(x^{*},y^{*})=c \\
 \nabla f(x^{*},y^{*})+\lambda^{*}\nabla g(x^{*},y^{*})=0 \\
 \end{cases}$$
-![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/planning_pic/拉格朗日乘子法应用.png)
+![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/math_pic/拉格朗日乘子法应用.png)
 **当涉及多个自变量和多个约束条件时，拉格朗日乘子法同样适用**
-![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/planning_pic/多变量与多条件下的拉格朗日乘子法应用.jpg)
+![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/math_pic/多变量与多条件下的拉格朗日乘子法应用.jpg)
 
 ### 矩阵
 
@@ -45,7 +47,7 @@ g(x^{*},y^{*})=c \\
   
 矩阵行列式代表按照该矩阵进行线性变换后，空间大小变换的倍数关系，例如原本面积为1的空间，经过$\begin{bmatrix}2&0\\0&2\end{bmatrix}$变换后，将变为面积为4的空间。
 行列式的计算方式为主对角线方向数乘积之和减去副对角线方向数乘积之和
-![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/planning_pic/行列式计算公式.jpg)
+![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/math_pic/行列式计算公式.jpg)
 
 - **转置**
 
@@ -55,8 +57,9 @@ $(A_{1}A_{2} \cdots A_{n})^{T}=A_{n}^{T} \cdots A_{2}^{T}A_{1}^{T}$
 - **逆矩阵**
 
 $A$为$n$阶方阵，若存在$n$阶方阵$B$，使得$AB=BA=I$，则$A,B$互逆，记作：$B=A^{-1}$
-$(\lambda A)^{-1}=\frac{1}{\lambda}A^{-1} $
-$(AB)^{-1}=B^{-1}A^{-1}$
+$$(\lambda A)^{-1}=\frac{1}{\lambda}A^{-1} $$
+
+$$(AB)^{-1}=B^{-1}A^{-1}$$
 
 - **矩阵的秩**
   - 代表线性变换后空间的维度
@@ -104,11 +107,46 @@ $(AB)^{-1}=B^{-1}A^{-1}$
   - 为了在已知样本的情况下，求得最可能出现的参数值，引入**似然函数**和**极大似然估计**
   - 其中，似然函数是一种关于统计模型参数的函数。给定输出$x$时，关于参数$θ$的似然函数$L(θ|x)$（在数值上）等于给定参数$θ$后变量X的概率：$L(θ|x)=P(X=x|θ)$
     - 对于**离散型随机变量联合概率函数**所对应的似然函数为：
-$$L(\theta_{1},\theta_{2},\cdots ,\theta_{k})=\prod_{i=1}^{n}p(x_{i};\theta_{1},\theta_{2},\cdots ,\theta_{k})$$
+    $$L(\theta_{1},\theta_{2},\cdots ,\theta_{k})=\prod_{i=1}^{n}p(x_{i};\theta_{1},\theta_{2},\cdots ,\theta_{k})$$
     - 对于**连续型随机变量联合概率密度**所对应的似然函数为：
-$$L(\theta_{1},\theta_{2},\cdots ,\theta_{k})=\prod_{i=1}^{n}f(x_{i};\theta_{1},\theta_{2},\cdots ,\theta_{k})$$
+    $$L(\theta_{1},\theta_{2},\cdots ,\theta_{k})=\prod_{i=1}^{n}f(x_{i};\theta_{1},\theta_{2},\cdots ,\theta_{k})$$
     - 最大似然估计就是选择使$L(\theta_{1},\theta_{2},\cdots ,\theta_{k})$达到最大值的那一组$\theta$作为真实的估计。
     - 一般通过对$\prod_{i=1}^{n}f(x_{i};\theta_{1},\theta_{2},\cdots ,\theta_{k})$取对数的方式简化运算，将累乘运算转化为累加运算，并对想求解的$\theta$值求偏导数获取极值点，完成极大似然估计
+
+- 二维随机变量
+  - **联合分布**
+    - 离散型：若$(X,Y)$为随机变量，对于任意实数$x,y$，$F(x,y)=P{(X \le x)\cap(Y \le y)}$表示随机点$(X,Y)$在以$(x,y)$为顶点且位于该点左下方无穷矩形的概率，且有
+    $$
+    P(x_{1}<X\le x_{2},y_{1}<Y\le y_{2})=F( x_{2},y_{2})-F(x_{1},y_{2})-F(x_{2},y_{1})+F(x_{1},y_{1})
+    $$
+    - 连续型：对于二维随机变量$(X,Y)$的分布函数$F(x,y)$，如果存在非负函数$f(x,y)$对于任意$x,y$有：$F(x,y)=\int_{-\infty}^{y}\int_{-\infty}^{x}f(u,v)dudv$，称$(X,Y)$为连续型的二维随机变量，$f(x,y)$为其概率密度，且有：
+    $$
+    P{(X,Y)\in G}=\int_{G}\int_{G}f(x,y)dxdy
+    $$
+  - **边缘分布**
+    - 指在概率论和统计学的多维随机变量中，只包含其中部分变量的概率分布
+
+- 数学期望：反映随机变量的取值水平
+  - 离散型随机变量$Z=g(x,y)$的期望为：
+$$
+E(Z)=E(g(x,y))=\sum_{j=1}^{\infin} \sum_{i=1}^{\infin} g(x_{i},y_{j}))p_{ij}
+$$
+  - 连续型随机变量$Z=g(x,y)$概率密度为$z=f(x,y)$，设$\int_{-\infin}^{+\infin} \int_{-\infin}^{+\infin} g(x,y)f(x,y)dxdy$绝对收敛，有
+$$
+E(Z)=E(g(x,y))=\int_{-\infin}^{+\infin} \int_{-\infin}^{+\infin} g(x,y)f(x,y)dxdy
+$$
+- 方差：衡量随机变量相对于数学期望的分散程度$D(X)=E(X-E(X))^{2}=E(X^{2})-[E(X)^{2}]$
+- 大数定理：重复实验多次后随机事件的频率近似于其概率
+- 马尔科夫不等式：
+$$
+P(X \ge a)\le\frac{(E(X))}{a} 
+$$
+![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/math_pic/马尔科夫不等式证明.jpg)
+- 切比雪夫不等式：
+$$
+P(|X-E(X)|\ge \epsilon)\le \frac{\sigma^{2}}{\epsilon^{2}}
+$$
+![](https://picgo2355sven.oss-cn-shenzhen.aliyuncs.com/math_pic/切比雪夫不等式证明.jpg)
 
 ### 聚类分析
 - 层次聚类：试图在不同层次对数据集进行划分，从而形成树形的聚类结构。
